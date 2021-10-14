@@ -16,7 +16,7 @@ print(list_of_urls)
 
 #%%
 def scrape_url(url):
-    page = requests.get(url, headers = headers)
+    page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     text = [item.get_text() for item in soup.find_all('p')][8]
     text = text.split(sep='\n')
@@ -75,3 +75,4 @@ script[['char','line']] = script.raw.str.split(pat = ': ', n = 1, expand = True)
 
 #%%
 script.to_csv('anne1script.csv')
+# %%
